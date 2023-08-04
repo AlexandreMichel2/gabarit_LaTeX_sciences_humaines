@@ -1,0 +1,54 @@
+\chapter{EXEMPLES DE LISTES ET BOÎTES DE TEXTE}
+
+% Exemple de liste en points
+Exemple de liste en points
+\begin{itemize}
+  \item La liste commence par la fonction \verb|\begin{itemize}| et chaque objet (point) de la liste commence par la fonction \verb|\item|.
+  \item Chaque objet de la liste commence par un point automatiquement placé.
+  \item Le texte de chaque objet peut être de n'importe quelle taille.
+  \item La liste doit OBLIGATOIREMENT se terminer par la fonction \verb|\end{itemize}|
+\end{itemize}
+
+% Exemple de liste ordonnée
+
+Exemple de liste ordonnée
+\begin{enumerate}
+  \item La liste commence par la fonction \verb|\begin{enumerate}| et chaque objet (chiffre) de la liste commence par la fonction \verb|\item|.
+  \item Les objets de la liste sont ordonnés et le chiffre est apposé automatiquement.
+  \item Le texte de chaque objet peut être de n'importe quelle taille.
+  \item La liste doit OBLIGATOIREMENT se terminer par la fonction \verb|\end{enumerate}|
+\end{enumerate}
+
+% Exemple de boîte de texte
+
+Deux exemples de boîtes de texte :
+
+Une boîte de texte avec fond gris/parchemin
+
+\begin{textbox_parchemin}{Titre de la boîte de texte}
+    Entrer le texte qui doit être dans la boîte ici. Cette longue ligne de texte permettra de vérifier l'interligne qui change à l'intérieur de la boîte, par rapport au corps du texte.
+\end{textbox_parchemin}
+
+Une boîte de texte avec fond blanc
+
+\begin{textbox_blanc}{Titre de la boîte de texte}
+    Entrer le texte qui doit être dans la boîte ici.
+    \\
+    \\
+    La boîte supporte des sauts de ligne.
+    \\
+    \\
+    \\
+    \\
+    Mais aussi.
+    \\
+    \\
+    \\
+    \\
+    Les sauts de page.
+    \\
+    \\
+    \\
+    \\
+    Sans briser la boîte.
+\end{textbox_blanc}

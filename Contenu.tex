@@ -1,0 +1,109 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                                                                    %%%%
+%%%%    Ce fichier contient toutes les parties du document              %%%%
+%%%%    Il en détermine aussi l'ordre d'apparition sur le PDF           %%%%
+%%%%    Le contenu se trouve dans les dossiers 1, 2 et 3 du projet      %%%%
+%%%%    Divisées en 3 parties (Frontmatter, Mainmatter et Endmatter)    %%%%
+%%%%    Frontmatter: Parties liminaires paginées en chiffres romains    %%%%
+%%%%    Mainmatter: Les parties constituant le corps du texte           %%%%
+%%%%    Endmatter: Parties finales (Annexes, médiagraphie, etc.)        %%%%
+%%%%                                                                    %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{gobble}
+    
+%%% DÉBUT DES PAGES LIMINAIRES (FRONTMATTER) %%%
+    
+    % Changement des noms des sections
+    \renewcommand\contentsname{TABLE DES MATIÈRES}
+    \renewcommand\listfigurename{LISTE DES FIGURES}
+    \renewcommand\listtablename{LISTE DES TABLEAUX}
+    \newcommand\listofacronymsname{LISTE DES ACRONYMES}
+    
+    % Page titre
+    \input{1-frontmatter/Page-Titre}
+
+    % Débuter la numérotation en chiffres romains
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+
+    % Résumé
+    \input{1-frontmatter/Resume_Remerciements}
+    
+    % Remerciements
+    \input{1-frontmatter/Resume_Remerciements}
+    
+    % Table des matières
+    \begin{spacing}{1.75}
+        \tableofcontents
+    \end{spacing}
+    
+    % Liste des figures
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \listoffigures
+    
+    % Liste des tableaux
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \listoftables
+    
+    % Liste des acronymes
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\listofacronymsname}
+    \input{1-frontmatter/Acronymes}
+    
+    \clearpage
+    
+%%% FIN DES PAGES LIMINAIRES %%%
+
+
+
+
+\pagenumbering{arabic}
+
+
+
+
+
+%%% DÉBUT DU CORPUS DU TEXTE (MAINMATTER) %%%
+    
+    % Insérer les chapitres et/ou les sections constituant le corps du texte en ordre ici
+    \input{2-mainmatter/Sections/0-Introduction}
+    \input{2-mainmatter/Sections/1-Section1}
+    \input{2-mainmatter/Sections/2-Section2}
+    \input{2-mainmatter/Sections/99-Conclusion}
+    
+%%% FIN DU CORPUS DU TEXTE (MAINMATTER) %%%
+
+
+
+
+
+%%% DÉBUT DES PAGES DE FIN (ENDMATTER) %%%
+    
+    % Début des annexes
+    \begin{appendices}
+    \titleformat{\chapter}[display]{\center\fontsize{14pt}{14pt}\selectfont}{\appendixname\ \thechapter}{0pt}{\MakeUppercase}
+    
+    % Insérer les fichiers d'annexe en ordre ici
+    \input{3-endmatter/Annexe-A}
+    % \input{3-endmatter/Annexe-B}
+    % \input{3-endmatter/Annexe-C}
+    % \input{3-endmatter/Annexe-D}
+    % \input{3-endmatter/Annexe-E}
+    
+    % Fin des annexes
+    \end{appendices}
+
+    % Médiagraphie (après OU avant les annexes)
+    \singlespacing
+    \printbibliography[heading=bibintoc, title=\vspace{6pt}MÉDIAGRAPHIE]
+    
+%%% FIN DES PAGES DE FIN (ENDMATTER) %%%

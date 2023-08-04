@@ -1,0 +1,199 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%        Aide-Mémoire des fonctions importantes        %%%%
+%%%%             pour la rédaction d'un texte             %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%    NOTES DE BAS DE PAGE    %%%%%%%%%%
+
+\autocite[page référencée]{clé de la source dans le fichier "references.bib"}
+\footnote{texte personnalisé à mettre en note de bas de page}
+
+%%%%%%%%%%    FIN DES NOTES DE BAS DE PAGE    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    CITATIONS INDENTÉES    %%%%%%%%%%
+
+% Citation en bloc avec indentation
+\begin{quote}
+    Écrire le texte qui doit être mis en citation indentée ici
+\end{quote}
+% Doit NÉCESSAIREMENT être placé à la fin du bloc "quote"
+
+%%%%%%%%%%    FIN DES CITATIONS INDENTÉES    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    DIVISIONS D'UN DOCUMENT    %%%%%%%%%%
+
+\part{titre de la partie}
+\chapter{titre du chapitre}
+\section{titre de la section}
+\subsection{titre de la sous-section}
+\subsubsection{titre de la sous-sous-section}
+
+%%%%%%%%%%    FIN DES DIVISIONS D'UN DOCUMENT    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    STYLE DU TEXTE ÉCRIT    %%%%%%%%%%
+
+\textit{texte à mettre en italique ici}
+\textbf{texte à mettre en gras ici}
+\uline{texte à souligner ici}
+
+% Utile pour écrire « 2e » ou « 3e »
+\textsuperscript{texte à mettre en exposant ici} 
+
+% Utile pour écrire CO2 ou H2O
+\textsubscript{texte à mettre en indice ici}
+
+% L'astérix permet d'appliquer le format, le style, d'une division du document à un titre sans toutefois l'ajouter dans la table des matières comme une réelle division à part entière
+\part*{titre du texte à formatter en partie}
+\chapter*{titre du texte à formater en chapitre}
+\section*{titre du texte à formater en section}
+\subsection*{titre du texte à formater en sous-section}
+\subsubsection*{titre du texte à formater en sous-sous-section}
+
+%%%%%%%%%%    FIN DU STYLE DU TEXTE ÉCRIT    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    LISTES    %%%%%%%%%%
+
+% Liste en bullet-points
+\begin{itemize}
+    \item Ce texte apparaîtra comme un premier élément de la liste
+    \item Ce texte apparaîtra comme un deuxième élément de la liste
+\end{itemize}
+% Doit NÉCESSAIREMENT être placé à la fin du bloc de liste
+
+% Début de la liste ordonnée chiffrée
+\begin{enumerate} 
+    \item Ce texte apparaîtra comme numéro 1 de la liste
+    \item Ce texte apparaîtra comme numéro 2 de la liste
+\end{enumerate}
+% Doit NÉCESSAIREMENT être placé à la fin du bloc de liste
+
+%%%%%%%%%%    FIN DES LISTES    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    BOÎTE DE TEXTE    %%%%%%%%%%
+
+\begin{textbox_parchemin}{Titre de la boîte de texte}
+    Entrer le texte qui doit être dans la boîte avec un fond beige ici
+\end{textbox_parchemin}
+
+\begin{textbox_blanc}{Titre de la boîte de texte}
+    Entrer le texte qui doit être dans la boîte avec un fond blanc ici
+\end{textbox_blanc}
+
+%%%%%%%%%%    FIN DE LA BOÎTE DE TEXTE    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    HYPERLIENS DANS LE TEXTE    %%%%%%%%%%
+
+% Sert à identifier un objet, comme une section ou une figure, que l'on pourra ensuite intégrer comme un hyper lien dans le texte (ex: voir section 6.1) et le 6.1 serait un hyperlien
+\label{Non qui servira à référer}
+
+% Sert à coller un lien dans le PDF qui réfère à l'objet identifié par le "\label{}" de la ligne précédente
+\ref{Nom qui sert à référer} 
+
+% Ligne qui doit être inscrite dans le fichier "Abreviations.tex" afin de définir l'acronyme/abréviation
+\acro{Les lettres qui composent l'acronyme (Ex: ACN)}{Ce que l'acronyme signifie}
+
+% Ligne qui sert à référer à un acronyme/abréviation qui a été définie dans le fichier "Abreviations.tex" et l'inscrire dans le texte à l'endroit apposé
+\ac{Les mêmes lettres qui composent l'acronyme désiré} 
+
+% Apposer un hyperlien dans le texte mais en choisissant ce qui sera écrit dans le texte
+\href{www.URL.com}{Ce qui apparaitra dans le texte}
+
+%%%%%%%%%%    FIN DES HYPERLIENS DANS LE TEXTE    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    IMAGES ET TABLEAUX    %%%%%%%%%%
+
+% \begin{figure}[H]     : Doit resté INCHANGÉ! (Débute l'insertion d'une figure)
+% \centering            : Sert à centrer l'image dans la page
+% \caption{titre}       : Titre de l'image qui apparaitra dans la liste des figures
+% \includegraphics[Options]{Emplacement_image} : On peut remplacer l'option "scale=1" par "width=\textwidth" pour forcer l'image à avoir la même largeur que les paragraphes
+% \label{fig1}          : Fait référence aux lignes 96 et 99 de l'aide-mémoire
+% \end{figure}          : Doit NÉCESSAIREMENT être placé à la fin du bloc de la figure
+
+\begin{figure}[H] 
+    \centering
+    \caption{titre de l'image} 
+    \includegraphics[keepaspectratio, width=0.5\textwidth]{images/NOM_IMAGE.PNG} % le 0.5 devant \textwidth signifie 50% de la largeur du texte. À changer pour une autre valeur si l'image est trop petite.
+    \source{Écrire le nom de la source en texte \footnotemark} % \footnotemark permet de créer une note de bas de page vide dans laquelle on pourra insérer la source
+    \label{fig1} 
+\end{figure}
+\footnotetext{\autocite[pages]{clé de référencement}} % \footnotetext{\autocite{}} sert à imprimer la note de bas de page avec la référence automatiquement remplie.
+
+% La création d'un tableau à partir de LaTeX directement n'est pas recommandée. Vous pouvez créer un tableau dans Excel et l'importer ensuite comme une figure (voir lignes 118 à 130 de l'aide-mémoire)
+\begin{table}[ht] % Débute l'insertion d'un tableau
+    \caption{titre du tableau} % Titre du tableau qui apparait dans la liste des tableaux
+    \centering % Sert à centrer le tableau dans la page
+        \begin{tabular}{c c c c} % 4 colonnes centrées
+            \hline\hline % Insérer une line horizontale double
+            Case & Method-1 & Method-2 & Method-3 \\ [0.5ex] % Crée les colonnes du tableau
+            % Chaque colonne est séparée par un "&" qui signifie qu'on passe à la prochaine
+            \hline % Insérer une ligne horizontale simple
+            1 & 50 & 837 & 970 \\ % Insère le corps du tableau rangée par rangée
+            2 & 47 & 877 & 230 \\
+            3 & 31 & 25 & 415 \\
+            4 & 35 & 144 & 2356 \\
+            5 & 45 & 300 & 556 \\ [1ex] % Ajoute un espace vertical 
+            \hline % Insérer une ligne horizontale simple
+        \end{tabular} % Doit NÉCESSAIREMENT être placé à la fin du bloc "tabular"
+    \label{tab1} % Fait référence au code de la 32 et 33 de l'aide mémoire
+\end{table} % Doit NÉCESSAIREMENT être placé à la fin du bloc du tableau
+
+%%%%%%%%%%    FIN DES IMAGES ET TABLEAUX    %%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%    ÉLÉMENTS DE MISE EN FORME    %%%%%%%%%%
+
+% Vider l'entête, le bas de page et la numérotation
+\pagestyle{empty} 
+
+% Ajouter un espace vertical de la taille désirée entre des paragraphes, des lignes ou des objets
+\vspace{10pt}
+
+% Imprime la date d'aujourd'hui
+\today
+
+%%%%%%%%%%    FIN DES ÉLÉMENTS DE MISE EN FORME    %%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+

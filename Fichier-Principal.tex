@@ -1,0 +1,58 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%              Fichier principal du document             %%%%
+%%%%    Sert à remplir les informations de la page titre    %%%%
+%%%%          Et à insérer le document "Contenu.tex"        %%%%
+%%%%      Qui contient les parties du document en ordre     %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, letterpaper, oneside]{report}
+
+
+
+
+
+%%% LES DOCUMENTS IMPORTANTS POUR LA MISE EN FORME %%%
+    \usepackage{Formatage}
+    \usepackage[title]{appendix}
+    \frenchsetup{StandardLayout = true}
+
+
+
+    
+
+%%% DOCUMENT DE RÉFÉRENCES MÉDIAGRAPHIQUES %%%
+    \addbibresource{References.bib}
+
+
+
+    
+
+%%% REMPLISSAGE DES INFORMATIONS IMPORTANTES POUR LA PAGE TITRE %%%
+    \newcommand{\deptname}{École de politique appliquée}
+    \newcommand{\facname}{Faculté des lettres et sciences humaines}
+    \newcommand{\univname}{Université de Sherbrooke}
+    
+    \newcommand{\projecttitle}{Gabarit LaTeX adapté aux sciences humaines et sociales}
+    
+    \newcommand{\authname}{Alexandre Michel}
+    
+    \newcommand{\profname}{Destiné au professeur X}
+    \newcommand{\classname}{Dans le cadre du cours POL101 -- La politique canadienne et québécoise}
+    
+    \newcommand{\cityname}{Sherbrooke, Québec, Canada}
+    \newcommand{\duedate}{À jour le \today}
+%%% FIN DU REMPLISSAGE %%%
+
+
+
+
+
+%%% DÉBUT DU DOCUMENT %%%
+    \begin{document}
+    
+    % Fichier contenant les sections du document en ordre
+    \input{Contenu}
+    
+    \end{document}
+%%% FIN DU DOCUMENT %%%

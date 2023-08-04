@@ -1,0 +1,433 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%        CE FICHIER CONTIENT LA MISE EN FORME DU TEXTE        %%%%
+%%%%                  ****(NE PAS MODIFIER)****                  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% IMPORT PACKAGES %%%
+% font
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+
+% French characters
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[autolanguage]{numprint} % for the \nombre command
+\selectlanguage{french}
+\def\frenchtablename{\scshape Tableau}
+\def\frenchfigurename{\scshape Figure}
+\usepackage{CormorantGaramond}
+
+% margins
+\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm,footnotesep=12pt plus 1pt minus 1pt]{geometry}
+
+% remove hyphenation, fix margin violation.
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% polyglossa
+\usepackage{csquotes}
+
+% alternate underline (\ul{} et \so{})
+\usepackage{soul}
+
+% Unités de mesure
+% \usepackage{siunitx}
+
+% math symbols
+\usepackage{amsmath}
+
+% include graphics
+\usepackage{graphicx}
+
+% include acronyms
+\usepackage{acronym}
+
+% include appendices
+\usepackage[titletoc, title]{appendix}
+\usepackage{apptools}
+\AtBeginDocument{\renewcommand\appendixname{ANNEXE}}
+
+% some float envrionments
+\usepackage{float}
+
+% framing
+\usepackage{framed}
+
+% color
+\usepackage{color}
+
+% line spacing
+\usepackage{setspace}
+%\linespread{1.5}
+%\linespread{2}
+\linespread{1.375}
+
+% \sout function and some others, without the option it messes up end-text citation
+\usepackage[normalem]{ulem}
+
+% sout in math mode
+\usepackage{cancel}
+
+% stop footnote number resetting
+\counterwithout{footnote}{chapter}
+
+% for month and year info
+\usepackage{datetime}
+
+% title formatting
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage[titles]{tocloft}
+\usepackage{blindtext}
+\usepackage{etoolbox}
+
+\titleformat{\section}{\fontsize{14pt}{14pt}\selectfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\fontsize{13pt}{13pt}\selectfont\itshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\fontsize{12pt}{12pt}\selectfont}{\thesubsubsection}{1em}{}
+\titleformat{\chapter}[display]{\center\fontsize{14pt}{14pt}\selectfont}{\thechapter}{0pt}{\MakeUppercase}
+
+\titlespacing{\chapter}{0pt}{-26pt}{10pt}
+\titlespacing{\section}{0pt}{2em}{10pt}
+\titlespacing{\subsection}{0pt}{2em}{8pt}
+\titlespacing{\subsubsection}{0pt}{2em}{6pt}
+\titlespacing{\paragraph}{0pt}{0em}{12pt}
+
+
+% Réduire l'espacement des chapitres dans la table des matières
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+
+\setlength{\cftbeforechapskip}{0.5pt}
+\setlength{\cftbeforesecskip}{0.5pt}
+\setlength{\cftbeforesubsecskip}{0.5pt}
+\setlength{\cftbeforesubsubsecskip}{0.5pt}
+
+\renewcommand\cftchapfont{\normalfont\small}
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+
+\renewcommand\cftchappagefont{\mdseries}
+\renewcommand\cftsecpagefont{\mdseries}
+\renewcommand\cftsubsecpagefont{\mdseries}
+\renewcommand\cftsubsubsecpagefont{\mdseries}
+\addtocontents{toc}{\protect\addvspace{4pt}}
+\addtocontents{lof}{\protect\addvspace{4pt}}
+\addtocontents{lot}{\protect\addvspace{4pt}}
+
+% makes subsubsection numbering visible in section heading.
+\setcounter{secnumdepth}{3}
+
+% configure figure and table captions
+\usepackage[labelsep=colon]{caption}
+\captionsetup{justification=centering}
+\newcommand{\source}[1]{%
+    \captionsetup{font=footnotesize}%
+    \caption*{SOURCE : {#1}\protect}}
+\usepackage{subcaption}
+
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+
+\renewcommand\tabularxcolumn[1]{m{#1}}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\raggedleft\arraybackslash}X}
+\newcommand\T{\rule{0pt}{2.6ex}}        % Top strut
+\newcommand\TT{\rule{0pt}{4.5ex}}       % Top big strut
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}}  % Bottom strut
+\newcommand\BB{\rule[-2.4ex]{0pt}{0pt}} % Bottom strut
+
+%% R graphics and environment settings %%
+\usepackage{alltt}
+
+% knitr settings
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}    
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{}
+%% end R environment %%
+
+% for word count
+% \usepackage{verbatim}
+% \immediate\write18{texcount -inc -incbib 
+% -sum main.tex > /tmp/wordcount.tex}
+% \newcommand\wordcount{
+% \verbatiminput{/tmp/wordcount.tex}}
+
+% Boîte de texte
+\usepackage[framemethod=TikZ]{mdframed}
+\definecolor{parchemin}{HTML}{F2F2F2}
+
+\newcommand{\boxtitle}[1]{%
+    \hspace*{\fill}\underline{\MakeUppercase{#1}}\hspace*{\fill}\vspace*{0.45\baselineskip}\\}
+
+\newenvironment{textbox_parchemin}[1]
+  {\mdfsetup{
+    frametitle={\uline{#1}},
+    linecolor=black,
+    outerlinewidth=1pt,
+    roundcorner=10pt,
+    innertopmargin=3pt,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    rightmargin=22.5pt,
+    innerleftmargin=20pt,
+    leftmargin=22.5pt,
+    frametitlealignment=\center,
+    frametitleaboveskip=10pt,
+    backgroundcolor=parchemin
+    }
+  \begin{mdframed}%
+  }
+  {\end{mdframed}}
+
+\newenvironment{textbox_blanc}[1]
+  {\mdfsetup{
+    frametitle={\uline{#1}},
+    linecolor=black,
+    outerlinewidth=1pt,
+    roundcorner=10pt,
+    innertopmargin=3pt,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=20pt,
+    rightmargin=22.5pt,
+    innerleftmargin=20pt,
+    leftmargin=22.5pt,
+    frametitlealignment=\center,
+    frametitleaboveskip=10pt,
+    backgroundcolor=white
+    }
+  \begin{mdframed}%
+  }
+  {\end{mdframed}}
+
+% hinder widows and orphans
+\usepackage[all]{nowidow}
+
+% change spacing per environments
+\AtBeginEnvironment{quote}{\par\singlespacing\small}
+\AtBeginEnvironment{forest}{\singlespacing\small}
+\AtBeginEnvironment{exe}{\singlespacing}
+\AtBeginEnvironment{textbox_blanc}{\singlespacing}
+\AtBeginEnvironment{textbox_parchemin}{\singlespacing}
+
+\newlength\mystoreparindent
+\newenvironment{myparindent}[1]{%
+\setlength{\mystoreparindent}{\the\parindent}
+\setlength{\parindent}{#1}
+}{%
+\setlength{\parindent}{\mystoreparindent}
+}
+
+% text positioning for paragraphs
+\usepackage[parfill]{parskip}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{12pt}
+
+% Text position in list
+\usepackage{enumitem}
+\setlist[itemize]{nosep,itemsep=2pt}
+\setlist[enumerate]{nosep,itemsep=2pt}
+
+% Implement code in text
+\usepackage{listings}
+
+%%% KEEP THESE PACKAGES AT THE VERY END OF YOUR STY FILE IF YOU WANT TO HAVE ADDITIONAL PACKAGES %%%
+% citation
+\usepackage[isbn=false,doi=true,url=true,backend=biber,dashed=false,annotation]{biblatex-chicago}
+\DefineBibliographyStrings{french}{in={dans},inseries={dans}}
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\DeclareNameAlias{default}{family-given/given-family}
+\renewbibmacro*{cite:short:ibid}{%
+  \usebibmacro{cite:short}{\thefield{entrytype}}}
+  
+\DeclareFieldFormat*{url}{URL\space\url{#1}}
+
+% Changer le format du "consulté le"
+\newcommand\twodigits[1]{%
+   \ifnum#1<10 0#1\else #1\fi
+}
+
+\DeclareFieldFormat*{urldate}{consulté le \twodigits{\thefield{urlday}}/\twodigits{\thefield{urlmonth}}/\thefield{urlyear}}
+
+% Changer le format des numéros et des volumes
+  
+\DeclareFieldFormat*{jourvol}{\hspace{-2.6pt}, vol. #1}
+% \DeclareFieldFormat*{jourvol}{vol. #1}
+\DeclareFieldFormat*{journum}{no. #1}
+
+  
+% \DeclareFieldFormat*{jouryear}{\hspace{-2.6pt}, #1}
+
+
+
+\renewcommand*{\postnotedelim}{\addcomma\space}
+
+\newcommand*{\erikapostvolpunct}{\addcomma\space}
+
+\renewbibmacro*{journal+issue+year+pages}{%
+  \usebibmacro{cjournal+ser+vol+num}%
+  \ifboolexpr{% 16th ed.
+    test {\iffieldundef{issue}}%
+    and
+    test {\iffieldundef{year}}%
+    and
+    not togl {cms@switchdates}%
+  }%
+  {\iffieldundef{number}%
+    {\iffieldundef{bookpagination}%
+      {\setunit{\postvolpunct}}%
+      {\setunit{\erikapostvolpunct}}%
+      \printfield{pages}}%
+    {\newcunit\printfield{pages}}}%
+  {\ifthenelse{\iffieldundef{volume}\AND\iffieldundef{number}}% 16th ed.
+    {\newcunit%
+      \iffieldundef{issue}%
+      {\usebibmacro{number+or+month}}%
+      {\printfield{issue}%
+        \setunit{\addspace}%
+        \usebibmacro{cmsyear}}%
+      \newcunit\printfield{pages}}%
+    {\setunit{\addspace}%
+    {%
+      \iffieldundef{issue}%
+      {\usebibmacro{number+or+month}}%
+      {\printfield{issue}%
+        \setunit{\addspace}%
+        \usebibmacro{cmsyear}}}%
+    \setunit{\erikapostvolpunct}%
+    \printfield{pages}}}}
+
+
+
+
+% Keeps footnotes at the bottom
+\usepackage[hang,flushmargin,bottom]{footmisc}
+
+\makeatletter
+\newlength{\fnBreite}
+\renewcommand{\@makefntext}[1]{%
+  \settowidth{\fnBreite}{\footnotesize\@thefnmark.i}
+  \protect\footnotesize\upshape%
+  \setlength{\@tempdima}{\columnwidth}\addtolength{\@tempdima}{-\fnBreite}%
+  \makebox[\fnBreite][l]{\@thefnmark.\phantom{}}%
+  \parbox[t]{\@tempdima}{\everypar{\hspace*{1em}}\hspace*{-1em}\upshape#1}}
+\makeatother
+
+\makeatletter 
+    \def\footnoterule{\kern-6\p@        % you can put other values to increase vertical space between rule and notes (just try out); difference between the values after "kern" is the width of the rule!
+  \hrule \@width \textwidth \kern 8.5\p@}  % the in value is the length of the footnoterule
+\makeatother
+
+% makes language examples appear in italic
+\let\eachwordone=\itshape
+
+% Comme le document ne contient aucun chapitre, cette ligne permet de ne considérer que les numéros de section
+\counterwithout{section}{chapter}
+
+% for hyperlink in footnote back to the reference
+%\usepackage{footnotebackref}
+
+% for footnotes in tables
+\usepackage{tablefootnote}
+
+% Ne pas avoir de notes de bas de page sur 2 pages
+\interfootnotelinepenalty=10000
+
+%%% Fonction qui sert à Label{} un mot ou une phrase
+\makeatletter
+\newcommand{\setword}[2]{%
+    \phantomsection
+    #1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
+}
+\makeatother
+
+% Permettre de pivoter une page entière en format paysage
+\usepackage{pdflscape}
+
+% Changer le style des numéros de pages
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\patchcmd{\chapter}{plain}{fancy}{}{}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\parbox{\textwidth}{\hrulefill\kern-0.6ex\raisebox{-0.5ex}{$\Bigl[$\makebox[3.5em][c]{\hspace{\fill}\thepage \textbf{/} \pageref*{LastPage}\hspace{\fill}}$\Bigr]$}\kern-0.5ex\hrulefill}}
+%\rfoot{\thepage \textbf{\bigg|} \pageref*{LastPage}}
+
+
+
+% LIGNE DU TEMPS
+\usepackage{chronology}
+\usepackage{lipsum}
+\definecolor{myFlashGreen}{RGB}{0, 166, 59}
+\definecolor{myGreen}{RGB}{0, 90, 32}
+\definecolor{myGold}{RGB}{241, 188, 25}
+\usetikzlibrary {shapes.callouts}
+
+
+
+% FOOTNOTES IN TABULARX TEST
+    \usepackage{makecell}
+    \renewcommand{\arraystretch}{2.25}
+    \definecolor{Gray}{gray}{0.9}
+    \usepackage[roman,breakwithin]{parnotes}
+    \renewcommand{\parnotefmt}[1]{\raggedright\footnotesize #1}
+
+% color links for abreviations and references
+\usepackage{hyperref}
+\hypersetup{
+    unicode={true},
+    colorlinks=true,
+    linkcolor=myFlashGreen, 
+    filecolor=blue,
+    citecolor = black,       
+    urlcolor=blue,
+    linktocpage={true}, % In TOC, links and colors for page numbers only.
+    pdfdisplaydoctitle={true}
+    }
+\usepackage[french, noabbrev, nameinlink, capitalize]{cleveref}
+
+\AtBeginEnvironment{appendices}{\crefalias{chapter}{appendix}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
